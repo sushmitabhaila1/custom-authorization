@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .top-header {
-        background-color: #007bff;
+        background-color: #dfdf0fff;
         color: #fff;
         padding: 10px 0;
     }
@@ -38,7 +38,7 @@
     }
 
     .menu li a {
-        color: #fff;
+        color: #8e8686ff;
         text-decoration: none;
         padding: 10px;
         transition: background-color 0.3s;
@@ -50,7 +50,7 @@
 
     .body-content {
         padding: 20px 0;
-        background-color: #f0f0f0;
+        background-color: #e0dddbe2;
     }
 
     .container .body-content {
@@ -80,7 +80,7 @@
 
     .profile-form button {
         padding: 10px;
-        background-color: #007bff;
+        background-color: #5ac115ff;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -101,7 +101,7 @@
     .alert {
         padding: 15px;
         margin-top: 20px;
-        background-color: #d4edda;
+        background-color: #e4e2ddff;
         border: 1px solid #0dc337;
         color: #155724;
         border-radius: 5px;
@@ -122,9 +122,9 @@
         <nav class="navbar">
             <div class="container">
                 <ul class="menu">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ route('profile') }}">Profile</a></li>
+                    <li><a href="{{ route('logout') }}">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -133,10 +133,12 @@
     <div class="body-content">
         <div class="container">
             <div class="container">
-               {{-- <div class="alert" id="success-alert">
-                    Success Alert
-                </div>--}}
-
+                @session("success")
+                    <div class="alert" id="success-alert">
+                            {{ session("success") }}
+                    </div>
+                @endsession
+    
                @yield("content")
 
             </div>

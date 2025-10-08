@@ -11,14 +11,18 @@
 <body>
 
     <div class="container">
-        {{-- <div class="alert" id="success-alert">
-            Success Alert
-        </div>--}}
+        @session("success")
+        <div class="alert" id="success-alert">
+            {{ session("success") }}
+        </div>
+        @endsession
 
-        {{-- <div class="alert alert-error" id="error-alert">
-            Error Alert
-        </div>--}}
-        
+        @session("error")
+            <div class="alert alert-error" id="error-alert">
+            {{ session("error") }}
+            </div>
+        @endsession
+
         @yield("content")
     
         
